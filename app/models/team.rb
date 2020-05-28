@@ -3,6 +3,8 @@ class Team < ApplicationRecord
   has_many :team2, class_name: "Game", foreign_key: "team2_id"
   has_many :players
 
+  validates :name, presence: true
+
   def top_5(achievement)
     GameAchievement
         .select('player_id,COUNT(*) as awards')

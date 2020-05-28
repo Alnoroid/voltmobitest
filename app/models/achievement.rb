@@ -2,6 +2,8 @@ class Achievement < ApplicationRecord
   has_many :game_achievements
   has_many :players, :through => :game_achievements
 
+  validates :name, presence: true
+
   def last_5(player)
     last_games_count = GameAchievement.joins('JOIN (SELECT games.* FROM games
     ORDER BY games.id DESC

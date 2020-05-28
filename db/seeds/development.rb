@@ -45,5 +45,4 @@ end
 # конец отсчёта
 finish = Time.now
 diff = finish - start
-puts 'Заняло: '
-puts diff
+puts "Заняло: #{diff} секунд"

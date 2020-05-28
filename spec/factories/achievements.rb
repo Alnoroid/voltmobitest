@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :achievement do
-    name { "MyString" }
+    name { "Medal of honor" }
   end
 end
