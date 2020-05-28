@@ -1,4 +1,4 @@
-CHANCE_TO_ACHIEVE = 40
+CHANCE_TO_ACHIEVE = 20
 
 # начало отсчёта
 start = Time.now
@@ -11,6 +11,7 @@ a_list.each do |record|
 end
 
 # Генерируем команды
+# 10.times do
 2.times do
   name = Faker::Team.name
 
@@ -24,6 +25,7 @@ end
 end
 
 # Генерируем матчи
+# 100.times do
 3.times do
   opponents = Team.limit(2).order("RAND()").pluck(:id)
 
@@ -33,14 +35,12 @@ end
 
   # Генерируем показатели игроков в играх
   (t1.players + t2.players).each do |p|
-
-    if (rand 100) >= 100 - CHANCE_TO_ACHIEVE
+    if (rand 100) >= 50 - CHANCE_TO_ACHIEVE
       achievement = Achievement.order("RAND()").first
-      GameAchievements.create!(game:game,achievement:achievement,player:p)
+      p.award(game,achievement)
     end
   end
 end
-
 
 # конец отсчёта
 finish = Time.now
