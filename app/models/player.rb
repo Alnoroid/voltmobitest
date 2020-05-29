@@ -6,8 +6,6 @@ class Player < ApplicationRecord
 
   validates :name, presence: true
 
-
-
   def award(game,achievement)
     GameAchievement.create!(player:self,game:game,achievement:achievement)
   end

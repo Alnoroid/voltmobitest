@@ -15,8 +15,6 @@ class Team < ApplicationRecord
         .limit(5).map(&:player_id)
   end
 
-  # AND `players`.`team_id` = 1
-
   def self.top_5_all(achievement)
     GameAchievement
         .select('player_id,COUNT(*) as awards')
